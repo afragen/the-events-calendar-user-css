@@ -16,5 +16,5 @@ Todo
 ====
 
 1. Override for Community Events plugin too.
- > you will need to override these either in your themes style.css file or the /wp-content/plugins/the-events-calendar-community-events/resources/tribe-events-community.css file (if you want to modify this file please first make a copy and place in an ‘events/community’ folder in your theme).
+<blockquote> you will need to override these either in your themes style.css file or the /wp-content/plugins/the-events-calendar-community-events/resources/tribe-events-community.css file (if you want to modify this file please first make a copy and place in an ‘events/community’ folder in your theme).</blockquote>
 2. http://stackoverflow.com/questions/1833330/how-to-get-php-get-array
