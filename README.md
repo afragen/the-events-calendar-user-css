@@ -3,8 +3,8 @@ events-calendar-user-css
 
 Create a plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing events.css into their file or add the correct @import to their custom CSS.
 
-Automatically add /the-events-calendar/resources/events.css and /my-theme/events/events.css and/or <br>
-/the-events-calendar-community-events/resources/tribe-events-community.css and /my-theme/events/community/tribe-events-community.css without duplicating.
+Automatically add /resources/events.css and /my-theme/events/events.css and/or <br>
+/resources/tribe-events-community.css and /my-theme/events/community/tribe-events-community.css without duplicating.
 
 The Events Calendar CSS lives in /wp-content/plugins/the-events-calendar/resources/events.css<br>
 User Added CSS lives in /wp-content/themes/my-theme/events/events.css
