@@ -41,12 +41,23 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 /* Add your functions below this line */
 
-$plugins = get_option('active_plugins');
-$required_plugin = 'the-events-calendar/the-events-calendar.php';
-if ( !in_array( $required_plugin , $plugins ) ) { wp_die('The Events Calendar plugin is not active.'); }
+require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+global $plugin, $plugin_data;
+add_action( 'admin_init', 'tecuc_requires_tec' );
+function tecuc_requires_tec() {
+	global $plugin, $plugin_data;
+	$plugin = plugin_basename( __FILE__ );
+	$plugin_data = get_plugin_data( __FILE__, false );
+	$required_plugin = 'the-events-calendar/the-events-calendar.php';
+	if ( !is_plugin_active( $required_plugin ) ) { 
+		deactivate_plugins( $plugin );
+		wp_die( "'".$plugin_data['Name']."' requires The Events Calendar plugin. Deactivating Plugin.<br /><br />Back to <a href='".admin_url()."'>WordPress admin</a>." );
+	}
+}
 
 add_action( 'wp_enqueue_scripts', 'add_user_css' );
 function add_user_css() {
+	global $plugin, $plugin_data;
 	$theme_dir = basename(rtrim(get_stylesheet_directory_uri(), '/'));
 	$domain = $_SERVER['SERVER_NAME'];
 	$subdir = basename(rtrim(site_url(), '/'));
@@ -57,23 +68,20 @@ function add_user_css() {
 	if ( file_exists( get_stylesheet_directory() . '/events/events.css' ) ) {
 		$plugs[] = '/wp-content/plugins/the-events-calendar/resources/events.css';
 		$user[] = 'events.css';
-	}
-	if ( file_exists( get_stylesheet_directory() . '/events/community/tribe-events-community.css' ) ) {
+	} elseif ( file_exists( get_stylesheet_directory() . '/events/community/tribe-events-community.css' ) ) {
 		$plugs[] = '/wp-content/plugins/the-events-calendar-community-events/resources/tribe-events-community.css';
 		$user[] = 'community/tribe-events-community.css';
+	} else {
+		deactivate_plugins( $plugin );
+		wp_die( "'".$plugin_data['Name']."' requires custom CSS overrides. Deactivating Plugin.<br /><br />Back to <a href='".admin_url()."'>WordPress admin</a>." );
 	}
-	if ( (!isset($user)) ) { die ('No custom CSS, deactivate "The Events Calendar User CSS" plugin'); }
+
 	$vars['plugs'] = $plugs;
 	$vars['user'] = $user;
-	
-	echo $domain . ' - ' . $subdir;
-	echo build_query($vars);
 
 	wp_dequeue_style( 'tribe-events-calendar-style' );
 	wp_register_style('tribe-user', plugin_dir_url(__FILE__) . 'tribe-user-css.php?' . build_query($vars) );
 	wp_enqueue_style('tribe-user');
 }
-
-
 
 ?>
