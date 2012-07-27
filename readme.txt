@@ -3,7 +3,7 @@ Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.1
 Tested up to: 3.4.1
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,16 +12,16 @@ A plugin to allow users to add custom CSS without having to either copy all exis
 
 == Description ==
 
-Automatically add `/resources/events.css` and `/my-theme/events/events.css` and/or <br>
-`/resources/tribe-events-community.css` and `/my-theme/events/community/tribe-events-community.css` without duplicating.
+Automatically add /resources/events.css and /my-theme/events/events.css and/or <br>
+/resources/tribe-events-community.css and /my-theme/events/community/tribe-events-community.css without duplicating.
 
-The Events Calendar CSS lives in `/wp-content/plugins/the-events-calendar/resources/events.css`<br>
-User Added CSS lives in `/wp-content/themes/my-theme/events/events.css`
+The Events Calendar CSS lives in /wp-content/plugins/the-events-calendar/resources/events.css<br>
+User Added CSS lives in /wp-content/themes/my-theme/events/events.css
 
-The Community Events CSS lives in `/wp-content/plugins/the-events-calendar-community-events/resources/tribe-events-community.css`<br>
-User Added CSS lives in `/wp-content/themes/my-theme/events/community/tribe-events-community.css`
+The Community Events CSS lives in /wp-content/plugins/the-events-calendar-community-events/resources/tribe-events-community.css<br>
+User Added CSS lives in /wp-content/themes/my-theme/events/community/tribe-events-community.css
 
-This plugin creates a `wp_enqueue_style` stylesheet that adds the correct @import lines for both the default CSS and the user CSS. This way the user only needs to add their overrides only to the `events.css` or `tribe-events-community.css` in their `/wp-content/themes/my-theme/events` directory.
+This plugin creates a wp_enqueue_style stylesheet that adds the correct @import lines for both the default CSS and the user CSS. This way the user only needs to add their overrides only to the events.css or tribe-events-community.css in their /wp-content/themes/my-theme/events directory.
 
 == Installation ==
 
