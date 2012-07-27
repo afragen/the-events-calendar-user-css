@@ -40,6 +40,9 @@ Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-e
 
 == Changelog ==
 
+= 0.2 =
+* readme fixes
+
 = 0.1 =
 * Initial release.
 
