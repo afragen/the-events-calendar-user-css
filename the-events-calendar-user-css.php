@@ -4,8 +4,9 @@ Plugin Name: The Events Calendar User CSS
 Plugin URI: http://wordpress.org/extend/plugins/the-events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing events.css into their file or add the correct @import to their custom CSS.
 Version: 0.1
-Text Domain: the-events-calendar-user-css
+Text Domain: events-calendar-user-css
 Author: Andy Fragen
+Author URI: http://thefragens.com/blog/
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
