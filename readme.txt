@@ -7,7 +7,7 @@ Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing events.css into their file or add the correct @import to their custom CSS.
+A plugin to allow users to add custom CSS without having to either copy all existing events.css or add the correct @import to their custom CSS.
 
 
 == Description ==
