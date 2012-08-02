@@ -3,7 +3,7 @@
 Plugin Name: The Events Calendar User CSS
 Plugin URI: http://wordpress.org/extend/plugins/the-events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing events.css into their file or add the correct @import to their custom CSS.
-Version: 0.2
+Version: 0.3
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
@@ -44,11 +44,12 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 global $plugin, $plugin_data;
+$plugin = plugin_basename( __FILE__ );
+$plugin_data = get_plugin_data( __FILE__, false );
+
 add_action( 'admin_init', 'tecuc_requires_tec' );
 function tecuc_requires_tec() {
 	global $plugin, $plugin_data;
-	$plugin = plugin_basename( __FILE__ );
-	$plugin_data = get_plugin_data( __FILE__, false );
 	$required_plugin = 'the-events-calendar/the-events-calendar.php';
 	if ( !is_plugin_active( $required_plugin ) ) { 
 		deactivate_plugins( $plugin );
@@ -56,8 +57,8 @@ function tecuc_requires_tec() {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'add_user_css' );
-function add_user_css() {
+add_action( 'wp_enqueue_scripts', 'tecuc_add_user_css' );
+function tecuc_add_user_css() {
 	global $plugin, $plugin_data;
 	$theme_dir = basename(rtrim(get_stylesheet_directory_uri(), '/'));
 	$domain = $_SERVER['SERVER_NAME'];
