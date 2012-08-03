@@ -43,12 +43,6 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 /* Add your functions below this line */
 
 
-function tecus_css_not_loaded () {
-	echo '<div class="error">
-       <p>The Events Calendar User CSS requires custom CSS in `your-theme/events` directory or `your-theme/events/community` directory.</p>
-    </div>';
-}
-
 add_action( 'plugins_loaded', 'tecuc_requires_tec' );
 function tecuc_requires_tec() {
 	if ( !class_exists( 'TribeEvents' ) ) { 
@@ -80,18 +74,14 @@ function tecuc_add_user_css() {
 // 	}
 	
 	//echo $tec_path . ":" . $tec_url; 
-	
-
-	if ( ( !file_exists( $tec_path ) ) || ( !file_exists( $community_path ) ) ) {
-		add_action('admin_notices', 'tecuc_css_not_loaded');
-	}
+	//echo $community_path . ":" . $community_url;
 	
 	if ( file_exists( $tec_path . 'resources/events.css' ) ) {
 		$plugs[] = $tec_url . 'resources/events.css' ;
 		$user[] = 'events.css';
 		wp_dequeue_style( 'tribe-events-calendar-style' );
 	}
-	
+		
 	if ( file_exists( $community_path . 'resources/tribe-events-community.css' ) ) {
 		$plugs[] = $community_url . 'resources/tribe-events-community.css';
 		$user[] = 'community/tribe-events-community.css';
