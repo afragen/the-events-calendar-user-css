@@ -10,7 +10,7 @@ $user = $_GET['user'];
 $count = count($plugs);
 $css = array();
 for ($i = 0; $i < $count; $i++) {
-	$css[] = '@import url("' . $domain_url . $plugs[$i] . '");';
+	$css[] = '@import url("' . $plugs[$i] . '");';
 	$css[] = '@import url("' . $domain_url . $theme_events_path . $user[$i] . '");';
 }
 $content = implode("\n", $css);

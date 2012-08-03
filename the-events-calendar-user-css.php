@@ -3,7 +3,7 @@
 Plugin Name: The Events Calendar User CSS
 Plugin URI: http://wordpress.org/extend/plugins/the-events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing events.css into their file or add the correct @import to their custom CSS.
-Version: 0.3
+Version: 0.4
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
@@ -42,48 +42,69 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 /* Add your functions below this line */
 
-require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-global $plugin, $plugin_data;
-$plugin = plugin_basename( __FILE__ );
-$plugin_data = get_plugin_data( __FILE__, false );
 
-add_action( 'admin_init', 'tecuc_requires_tec' );
+function tecus_css_not_loaded () {
+	echo '<div class="error">
+       <p>The Events Calendar User CSS requires custom CSS in `your-theme/events` directory or `your-theme/events/community` directory.</p>
+    </div>';
+}
+
+add_action( 'plugins_loaded', 'tecuc_requires_tec' );
 function tecuc_requires_tec() {
-	global $plugin, $plugin_data;
-	$required_plugin = 'the-events-calendar/the-events-calendar.php';
-	if ( !is_plugin_active( $required_plugin ) ) { 
-		deactivate_plugins( $plugin );
-		wp_die( "'".$plugin_data['Name']."' requires The Events Calendar plugin. Deactivating Plugin.<br /><br />Back to <a href='".admin_url()."'>WordPress admin</a>." );
+	if ( !class_exists( 'TribeEvents' ) ) { 
+		echo '<div class="error">
+       <p>The Events Calendar User CSS requires The Events Calendar plugin to be active.</p>
+    </div>';
+		deactivate_plugins(__FILE__);
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'tecuc_add_user_css' );
+add_action( 'wp_enqueue_scripts', 'tecuc_add_user_css', 9999 );
 function tecuc_add_user_css() {
-	global $plugin, $plugin_data;
-	$theme_dir = basename(rtrim(get_stylesheet_directory_uri(), '/'));
+
+	$wp_34 = version_compare($wp_version, '3.4', '>=');
+	$my_theme = $wp_34 ? wp_get_theme() : get_theme();
+	
 	$domain = $_SERVER['SERVER_NAME'];
 	$subdir = basename(rtrim(site_url(), '/'));
-	$vars = array( 'theme' => $theme_dir );
+	$vars = array( 'theme' => $my_theme->stylesheet );
 	if ( ($domain != $subdir) ) { $vars['subdir'] = $subdir; }
-	//$vars['subdir'] = 'subdirectory';
-	
-	if ( file_exists( get_stylesheet_directory() . '/events/events.css' ) ) {
-		$plugs[] = '/wp-content/plugins/the-events-calendar/resources/events.css';
-		$user[] = 'events.css';
-	} elseif ( file_exists( get_stylesheet_directory() . '/events/community/tribe-events-community.css' ) ) {
-		$plugs[] = '/wp-content/plugins/the-events-calendar-community-events/resources/tribe-events-community.css';
-		$user[] = 'community/tribe-events-community.css';
-	} else {
-		deactivate_plugins( $plugin );
-		wp_die( "'".$plugin_data['Name']."' requires custom CSS overrides. Deactivating Plugin.<br /><br />Back to <a href='".admin_url()."'>WordPress admin</a>." );
-	}
 
+	$tec = TribeEvents::instance();
+	$tec_path = $tec->pluginPath;
+	$tec_url = $tec->pluginUrl;
+// 	if ( class_exists( 'TribeCommunityEvents' ) {
+// 		$teccommunity = TribeCommunityEvents::instance();
+// 		$community_path = $teccommunity->pluginPath;
+// 		$community_url = $teccommunity->pluginUrl;
+// 	}
+	
+	//echo $tec_path . ":" . $tec_url; 
+	
+
+	if ( ( !file_exists( $tec_path ) ) || ( !file_exists( $community_path ) ) ) {
+		add_action('admin_notices', 'tecuc_css_not_loaded');
+	}
+	
+	if ( file_exists( $tec_path . 'resources/events.css' ) ) {
+		$plugs[] = $tec_url . 'resources/events.css' ;
+		$user[] = 'events.css';
+		wp_dequeue_style( 'tribe-events-calendar-style' );
+	}
+	
+	if ( file_exists( $community_path . 'resources/tribe-events-community.css' ) ) {
+		$plugs[] = $community_url . 'resources/tribe-events-community.css';
+		$user[] = 'community/tribe-events-community.css';
+		//wp_dequeue_style( 'tribe-events-community-style' );
+	}
+	
 	$vars['plugs'] = $plugs;
 	$vars['user'] = $user;
 
-	wp_dequeue_style( 'tribe-events-calendar-style' );
 	wp_register_style('tribe-user', plugin_dir_url(__FILE__) . 'tribe-user-css.php?' . build_query($vars) );
 	wp_enqueue_style('tribe-user');
+
 }
+
 
 ?>
