@@ -3,7 +3,7 @@
 Plugin Name: The Events Calendar User CSS
 Plugin URI: http://wordpress.org/extend/plugins/the-events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing events.css into their file or add the correct @import to their custom CSS.
-Version: 0.4
+Version: 0.5
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
@@ -57,7 +57,7 @@ add_action( 'wp_enqueue_scripts', 'tecuc_add_user_css', 9999 );
 function tecuc_add_user_css() {
 
 	$wp_34 = version_compare($wp_version, '3.4', '>=');
-	$my_theme = $wp_34 ? wp_get_theme() : get_theme();
+	$my_theme = $wp_34 ? wp_get_theme() : get_theme( get_current_theme() );
 	
 	$domain = $_SERVER['SERVER_NAME'];
 	$subdir = basename(rtrim(site_url(), '/'));
@@ -67,14 +67,12 @@ function tecuc_add_user_css() {
 	$tec = TribeEvents::instance();
 	$tec_path = $tec->pluginPath;
 	$tec_url = $tec->pluginUrl;
-// 	if ( class_exists( 'TribeCommunityEvents' ) {
-// 		$teccommunity = TribeCommunityEvents::instance();
-// 		$community_path = $teccommunity->pluginPath;
-// 		$community_url = $teccommunity->pluginUrl;
-// 	}
 	
-	//echo $tec_path . ":" . $tec_url; 
-	//echo $community_path . ":" . $community_url;
+	if ( class_exists( 'TribeCommunityEvents' ) ) {
+		$teccommunity = TribeCommunityEvents::instance();
+		$community_path = $teccommunity->pluginPath;
+		$community_url = $teccommunity->pluginUrl;
+	}
 	
 	if ( file_exists( $tec_path . 'resources/events.css' ) ) {
 		$plugs[] = $tec_url . 'resources/events.css' ;
