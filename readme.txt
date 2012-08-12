@@ -1,9 +1,9 @@
 === The Events Calendar User CSS ===
-Contributors: afragen
+Contributors: afragen, mzaweb
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.1
 Tested up to: 3.4.1
-Stable tag: 0.5
+Stable tag: 0.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,12 @@ Yes. [The Events Calendar plugin](http://wordpress.org/extend/plugins/the-events
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 0.5.2 =
+* fixes for Community Events plugin
+
+= 0.5.1 =
+* readme updates
 
 = 0.5 =
 * fixes for Community Events plugin

@@ -9,6 +9,7 @@ MAINFILE="the-events-calendar-user-css.php" # this should be the name of your ma
 
 # git config
 GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository
+GITREMOTE=`basename $(pwd)` # this should match name of remote git repository
 
 # svn config
 SVNPATH="/tmp/$PLUGINSLUG" # path to a temp SVN repo. No trailing slash required and don't add trunk.
@@ -45,8 +46,8 @@ git tag -a "$NEWVERSION1" -m "Tagging version $NEWVERSION1"
 
 # push to origin
 echo "Pushing latest commit to origin, with tags"
-git push origin master
-git push origin master --tags
+git push $GITREMOTE master
+git push $GITREMOTE master --tags
 
 # Export git contents to svn directory
 echo 
