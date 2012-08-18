@@ -3,7 +3,7 @@
 Plugin Name: The Events Calendar User CSS
 Plugin URI: http://wordpress.org/extend/plugins/the-events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing events.css into their file or add the correct @import to their custom CSS.
-Version: 0.5.2
+Version: 0.5.3
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
@@ -81,7 +81,7 @@ function tecuc_add_user_css() {
 	}
 		
 	if ( file_exists( $community_path . 'resources/tribe-events-community.css' ) ) {
-		$plugs[] = $community_url . 'resources/tribe-events-community.css';
+		$plugs[] = $community_url . '/resources/tribe-events-community.css';
 		$user[] = 'community/tribe-events-community.css';
 		wp_dequeue_style( 'tribe_events-ce-default' );
 	}
