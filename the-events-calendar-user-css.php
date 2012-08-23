@@ -2,8 +2,8 @@
 /*
 Plugin Name: The Events Calendar User CSS
 Plugin URI: http://wordpress.org/extend/plugins/the-events-calendar-user-css/
-Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing events.css into their file or add the correct @import to their custom CSS.
-Version: 0.5.3
+Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css into their file or add the correct @import to their custom CSS.
+Version: 0.5.4
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
@@ -46,10 +46,11 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 add_action( 'plugins_loaded', 'tecuc_requires_tec' );
 function tecuc_requires_tec() {
 	if ( !class_exists( 'TribeEvents' ) ) { 
-		echo '<div class="error">
-       <p>The Events Calendar User CSS requires The Events Calendar plugin to be active.</p>
-    </div>';
-		deactivate_plugins(__FILE__);
+		if ( current_user_can( 'activate_plugins' ) && is_admin() ) {
+			echo '<div class="error">
+			<p>The Events Calendar Category User CSS requires The Events Calendar plugin to be active.</p>
+			</div>';
+		}
 	}
 }
 

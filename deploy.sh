@@ -10,6 +10,8 @@ MAINFILE="the-events-calendar-user-css.php" # this should be the name of your ma
 # git config
 GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository
 GITREMOTE=`basename $(pwd)` # this should match name of remote git repository
+GITUSER="afragen"
+git remote set-url $GITREMOTE git@github.com:$GITUSER/$GITREMOTE.git
 
 # svn config
 SVNPATH="/tmp/$PLUGINSLUG" # path to a temp SVN repo. No trailing slash required and don't add trunk.
@@ -31,7 +33,7 @@ echo "readme version: $NEWVERSION1"
 NEWVERSION2=`grep "^Version" $GITPATH/$MAINFILE | awk -F' ' '{print $2}'`
 echo "$MAINFILE version: $NEWVERSION2"
 
-#if [ "$NEWVERSION1" != "$NEWVERSION2" ]; then echo "Versions don't match. Exiting...."; exit 1; fi
+if [ "$NEWVERSION1" != "$NEWVERSION2" ]; then echo "Versions don't match. Exiting...."; exit 1; fi
 
 echo "Versions match in readme.txt and PHP file. Let's proceed..."
 
