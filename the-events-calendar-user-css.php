@@ -3,7 +3,7 @@
 Plugin Name: The Events Calendar User CSS
 Plugin URI: http://wordpress.org/extend/plugins/the-events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css into their file or add the correct @import to their custom CSS.
-Version: 0.5.5
+Version: 0.5.6
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
@@ -43,13 +43,13 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 /* Add your functions below this line */
 
 
-add_action( 'plugins_loaded', 'tecuc_requires_tec' );
-function tecuc_requires_tec() {
+add_action( 'plugins_loaded', 'tecuc_fail_msg' );
+function tecuc_fail_msg() {
 	if ( !class_exists( 'TribeEvents' ) ) { 
 		if ( current_user_can( 'activate_plugins' ) && is_admin() ) {
-			echo '<div class="error">
-			<p>The Events Calendar Category User CSS requires The Events Calendar plugin to be active.</p>
-			</div>';
+			$url = 'plugin-install.php?tab=plugin-information&plugin=the-events-calendar&TB_iframe=true';
+			$title = __( 'The Events Calendar', 'the-events-calendar-user-css' );
+			echo '<div class="error"><p>'.sprintf( __( 'To begin using The Events Calendar User CSS, please install the latest version of <a href="%s" class="thickbox" title="%s">The Events Calendar</a>.', 'tribe-events-calendar-pro' ),$url, $title ).'</p></div>';
 		}
 	} else {
 		add_action( 'wp_enqueue_scripts', 'tecuc_add_user_css', 9999 );
@@ -57,10 +57,12 @@ function tecuc_requires_tec() {
 }
 
 function tecuc_add_user_css() {
+	$tec_css = '/events/events.css';
+	$ce_css = '/events/community/tribe-events-community.css';
 
 	$wp_34 = version_compare($wp_version, '3.4', '>=');
 	$my_theme = $wp_34 ? wp_get_theme() : get_theme( get_current_theme() );
-	
+
 	$domain = $_SERVER['SERVER_NAME'];
 	$subdir = basename(rtrim(site_url(), '/'));
 	$vars = array( 'theme' => $my_theme->stylesheet );
@@ -76,15 +78,15 @@ function tecuc_add_user_css() {
 		$community_url = $teccommunity->pluginUrl;
 	}
 	
-	if ( file_exists( $tec_path . 'resources/events.css' ) ) {
+	if ( file_exists( $tec_path . 'resources/events.css' ) && file_exists( get_stylesheet_directory() . $tec_css ) ) {
 		$plugs[] = $tec_url . 'resources/events.css' ;
-		$user[] = 'events.css';
+		$user[] = $tec_css;
 		wp_dequeue_style( 'tribe-events-calendar-style' );
 	}
-		
-	if ( file_exists( $community_path . 'resources/tribe-events-community.css' ) ) {
+	
+	if ( file_exists( $community_path . 'resources/tribe-events-community.css' ) && file_exists( get_stylesheet_directory() . $ce_css ) ) {
 		$plugs[] = $community_url . '/resources/tribe-events-community.css';
-		$user[] = 'community/tribe-events-community.css';
+		$user[] = $ce_css;
 		wp_dequeue_style( 'tribe_events-ce-default' );
 	}
 	
