@@ -12,16 +12,12 @@ A plugin to allow users to add custom CSS without having to either copy all exis
 
 == Description ==
 
-Automatically add /resources/events.css and /my-theme/events/events.css and/or <br>
-/resources/tribe-events-community.css and /my-theme/events/community/tribe-events-community.css without duplicating.
+Automatically add /resources/events.css and /my-theme/events/events.css.
 
 The Events Calendar CSS lives in /wp-content/plugins/the-events-calendar/resources/events.css<br>
 User Added CSS lives in /wp-content/themes/my-theme/events/events.css
 
-The Community Events CSS lives in /wp-content/plugins/the-events-calendar-community-events/resources/tribe-events-community.css<br>
-User Added CSS lives in /wp-content/themes/my-theme/events/community/tribe-events-community.css
-
-This plugin creates a wp_enqueue_style stylesheet that adds the correct @import lines for both the default CSS and the user CSS. This way the user only needs to add their overrides only to the events.css or tribe-events-community.css in their /wp-content/themes/my-theme/events directory.
+This plugin creates a wp_enqueue_style stylesheet that adds the correct @import lines for both the default CSS and the user CSS. This way the user only needs to add their overrides only to the events.css in their /wp-content/themes/my-theme/events directory.
 
 == Installation ==
 
@@ -46,6 +42,7 @@ Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-e
 * load only with class TribeEvents
 * continuity with fail message
 * test for existence of override files
+* commented out code for Community Events plugin, it seems this is handled internally in the correct manner as of version 1.0.2.
 
 = 0.5.5 =
 * bug fix if TEC not active

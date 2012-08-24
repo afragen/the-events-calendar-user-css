@@ -58,7 +58,7 @@ function tecuc_fail_msg() {
 
 function tecuc_add_user_css() {
 	$tec_css = '/events/events.css';
-	$ce_css = '/events/community/tribe-events-community.css';
+// 	$ce_css = '/events/community/tribe-events-community.css';
 
 	$wp_34 = version_compare($wp_version, '3.4', '>=');
 	$my_theme = $wp_34 ? wp_get_theme() : get_theme( get_current_theme() );
@@ -72,11 +72,11 @@ function tecuc_add_user_css() {
 	$tec_path = $tec->pluginPath;
 	$tec_url = $tec->pluginUrl;
 	
-	if ( class_exists( 'TribeCommunityEvents' ) ) {
-		$teccommunity = TribeCommunityEvents::instance();
-		$community_path = $teccommunity->pluginPath;
-		$community_url = $teccommunity->pluginUrl;
-	}
+// 	if ( class_exists( 'TribeCommunityEvents' ) ) {
+// 		$teccommunity = TribeCommunityEvents::instance();
+// 		$community_path = $teccommunity->pluginPath;
+// 		$community_url = $teccommunity->pluginUrl;
+// 	}
 	
 	if ( file_exists( $tec_path . 'resources/events.css' ) && file_exists( get_stylesheet_directory() . $tec_css ) ) {
 		$plugs[] = $tec_url . 'resources/events.css' ;
@@ -84,11 +84,11 @@ function tecuc_add_user_css() {
 		wp_dequeue_style( 'tribe-events-calendar-style' );
 	}
 	
-	if ( file_exists( $community_path . 'resources/tribe-events-community.css' ) && file_exists( get_stylesheet_directory() . $ce_css ) ) {
-		$plugs[] = $community_url . '/resources/tribe-events-community.css';
-		$user[] = $ce_css;
-		wp_dequeue_style( 'tribe_events-ce-default' );
-	}
+// 	if ( file_exists( $community_path . 'resources/tribe-events-community.css' ) && file_exists( get_stylesheet_directory() . $ce_css ) ) {
+// 		$plugs[] = $community_url . '/resources/tribe-events-community.css';
+// 		$user[] = $ce_css;
+// 		wp_dequeue_style( 'tribe_events-ce-default' );
+// 	}
 	
 	$vars['plugs'] = $plugs;
 	$vars['user'] = $user;
