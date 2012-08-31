@@ -3,7 +3,7 @@
 Plugin Name: The Events Calendar User CSS
 Plugin URI: http://wordpress.org/extend/plugins/the-events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css into their file or add the correct @import to their custom CSS.
-Version: 0.5.6
+Version: 0.5.7
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
@@ -43,7 +43,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 /* Add your functions below this line */
 
 
-add_action( 'plugins_loaded', 'tecuc_fail_msg' );
+add_action( 'admin_notices', 'tecuc_fail_msg' );
 function tecuc_fail_msg() {
 	if ( !class_exists( 'TribeEvents' ) ) { 
 		if ( current_user_can( 'activate_plugins' ) && is_admin() ) {
@@ -51,9 +51,13 @@ function tecuc_fail_msg() {
 			$title = __( 'The Events Calendar', 'the-events-calendar-user-css' );
 			echo '<div class="error"><p>'.sprintf( __( 'To begin using The Events Calendar User CSS, please install the latest version of <a href="%s" class="thickbox" title="%s">The Events Calendar</a>.', 'tribe-events-calendar-pro' ),$url, $title ).'</p></div>';
 		}
-	} else {
-		add_action( 'wp_enqueue_scripts', 'tecuc_add_user_css', 9999 );
 	}
+}
+
+add_action( 'plugins_loaded', 'tecuc_load' );
+function tecuc_load() {
+	if ( class_exists( 'TribeEvents' ) )
+		add_action( 'wp_enqueue_scripts', 'tecuc_add_user_css', 9999 );
 }
 
 function tecuc_add_user_css() {
