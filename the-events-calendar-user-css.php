@@ -3,7 +3,7 @@
 Plugin Name: The Events Calendar User CSS
 Plugin URI: https://github.com/afragen/events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css into their file or add the correct @import to their custom CSS.
-Version: 0.5.9
+Version: 0.6
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
