@@ -3,7 +3,7 @@ Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 0.6
+Stable tag: 0.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,9 @@ Yes. [The Events Calendar plugin](http://wordpress.org/extend/plugins/the-events
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 0.6.1 =
+* prevent tribe-user-css.php from being loaded directly
 
 = 0.6 =
 * fixes to readme
