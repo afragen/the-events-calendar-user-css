@@ -1,8 +1,4 @@
-<?php
-
-// Prevent loading this file directly - Busted!
-if ( !defined('ABSPATH') ) { die('-1'); }
-
+<?php 
 header('Content-type: text/css');
 $http = 'http';
 if( isset($_SERVER['HTTPS']) ) { $http .= "s"; }
