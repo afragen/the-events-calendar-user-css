@@ -3,7 +3,7 @@ header('Content-type: text/css');
 $http = 'http';
 if( isset($_SERVER['HTTPS']) ) { $http .= "s"; }
 $domain_url = $http."://".$_SERVER['SERVER_NAME'];
-if ( ! isset($_GET['theme']) ) { return; }
+if ( !( isset($_GET['theme']) || isset($_GET['plugs']) || isset($_GET['user']) ) ) { return; }
 if ( isset($_GET['subdir']) ) { $domain_url .= "/" . $_GET['subdir']; }
 $theme_events_path = '/wp-content/themes/' . $_GET['theme'] ;
 $plugs = $_GET['plugs'];
