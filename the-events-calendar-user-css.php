@@ -70,6 +70,3 @@ function tecuc_add_user_css() {
 	wp_enqueue_style('tribe-user');
 
 }
-
-
-?>
