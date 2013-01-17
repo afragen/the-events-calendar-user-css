@@ -39,7 +39,7 @@ Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-e
 == Changelog ==
 
 = 0.6.1 =
-* prevent tribe-user-css.php from being loaded directly
+* prevent tribe-user-css.php from throwing PHP error if loaded directly
 
 = 0.6 =
 * fixes to readme

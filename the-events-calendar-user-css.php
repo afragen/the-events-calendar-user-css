@@ -11,13 +11,14 @@ License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
+const tecuc_version = "0.6.1";
 
 add_action( 'admin_notices', 'tecuc_fail_msg' );
 function tecuc_fail_msg() {
 	if ( !class_exists( 'TribeEvents' ) ) { 
 		if ( current_user_can( 'activate_plugins' ) && is_admin() ) {
 			$url = 'plugin-install.php?tab=plugin-information&plugin=the-events-calendar&TB_iframe=true';
-			$title = __( 'The Events Calendar', 'the-events-calendar-user-css' );
+			$title = __( 'The Events Calendar', 'tribe-events-calendar' );
 			echo '<div class="error"><p>'.sprintf( __( 'To begin using The Events Calendar User CSS, please install the latest version of <a href="%s" class="thickbox" title="%s">The Events Calendar</a>.', 'tribe-events-calendar-pro' ),$url, $title ).'</p></div>';
 		}
 	}
@@ -66,7 +67,7 @@ function tecuc_add_user_css() {
 	$vars['plugs'] = $plugs;
 	$vars['user'] = $user;
 
-	wp_register_style('tribe-user', plugin_dir_url(__FILE__) . 'tribe-user-css.php?' . build_query($vars) );
+	wp_register_style('tribe-user', plugin_dir_url(__FILE__) . 'tribe-user-css.php?' . build_query($vars), false, tecuc_version );
 	wp_enqueue_style('tribe-user');
 
 }

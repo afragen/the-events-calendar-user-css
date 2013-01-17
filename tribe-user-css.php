@@ -1,5 +1,4 @@
 <?php
-if ( !defined('ABSPATH') ) { die('-1'); }
 header('Content-type: text/css');
 $http = 'http';
 if( isset($_SERVER['HTTPS']) ) { $http .= "s"; }
