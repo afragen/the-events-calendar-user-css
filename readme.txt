@@ -3,14 +3,15 @@ Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 0.7
+Stable tag: 0.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css or add the correct @import to their custom CSS.
+A plugin to allow users to easily add custom CSS overrides for The Events Calendar.
 
 
 == Description ==
+A plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css or add the correct @import to their custom CSS.
 
 Automatically load /my-theme/events/events.css if it exists using wp_enqueue_style.
 
@@ -37,6 +38,9 @@ Yes. [The Events Calendar plugin](http://wordpress.org/extend/plugins/the-events
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 0.7.1 =
+* fixed stupid error in defining constant.
 
 = 0.7 =
 * vastly simplified plugin by checking for existence of CSS override file in pre-determined location and if present, enqueue loading of file.
