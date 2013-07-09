@@ -11,7 +11,7 @@ License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
-define( 'TECUC_VERSION', '0.8.1' );
+define( 'TECUC_VERSION', '0.8.2' );
 
 add_action( 'admin_notices', 'tecuc_fail_msg' );
 function tecuc_fail_msg() {
