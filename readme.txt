@@ -3,7 +3,7 @@ Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.1
 Tested up to: 3.5.4
-Stable tag: 0.8.1
+Stable tag: 0.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,16 +13,16 @@ A plugin to allow users to easily add custom CSS overrides for The Events Calend
 == Description ==
 A plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css or add the correct @import to their custom CSS.
 
-Automatically load /my-theme/tribe-events/events.css if it exists using wp_enqueue_style.
+Automatically load /my-theme/events/events.css if it exists using wp_enqueue_style.
 
-User Added CSS lives in /wp-content/themes/my-theme/tribe-events/events.css
+User Added CSS lives in /wp-content/themes/my-theme/events/events.css for TEC 2.x.
 
 The default TEC events.css will be loaded for you.
 
 == Installation ==
 
-1. Create a `/tribe-events/events.css` file and directory inside your active theme or child theme directory.
-1. `/tribe-events/events.css` only needs to contain the override CSS. No CSS code from the core events.css file needs to be duplicated.
+1. Create an `/events/events.css` file and directory inside your active theme or child theme directory.
+1. `/events/events.css` only needs to contain the override CSS. No CSS code from the core events.css file needs to be duplicated.
 1. Upload the entire `/the-events-calendar-user-css/` folder to the `/wp-content/plugins/` directory.
 1. Activate the plugin.
 
@@ -35,13 +35,20 @@ Yes. [The Events Calendar plugin](http://wordpress.org/extend/plugins/the-events
 = What do I name the override folder? =
 
 * For The Events Calendar 2.x name the override folder `'events'`
-* For The Events Calendar 3.x name the override folder `'tribe-events'`
+
+= Do I really need this? =
+
+No, if you're using The Events Calendar 3.x all you need to do is create the following structure in your theme's folder. `{YOUR_THEME}/tribe-events/tribe-events.css`. This file should contain only the override CSS. It will be loaded automatically by TEC 3.0.
 
 = Where can I report bugs? =
 
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 0.8.2 =
+* Only needed for TEC 2.x
+* Will work for TEC 3.0 if you haven't created the new folder structure. If you're using TEC 3.0 go ahead, make the change and deactivate this plugin. ;-)
 
 = 0.8.1 =
 * version bump
