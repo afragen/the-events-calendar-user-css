@@ -2,8 +2,8 @@
 Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.1
-Tested up to: 3.5.4
-Stable tag: 0.8.2
+Tested up to: 3.6
+Stable tag: 0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,9 @@ No, if you're using The Events Calendar 3.x all you need to do is create the fol
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 0.9 =
+* TEC 3.0 doesn't quite do it correctly. They automatically load User CSS before their CSS not after. Now works with either folder/file notation.
 
 = 0.8.2 =
 * Only needed for TEC 2.x
