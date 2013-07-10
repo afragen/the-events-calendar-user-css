@@ -3,7 +3,7 @@
 Plugin Name: The Events Calendar User CSS
 Plugin URI: https://github.com/afragen/events-calendar-user-css/
 Description: A plugin to work alongside The Events Calendar plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css into their file or add the correct @import to their custom CSS.
-Version: 0.9
+Version: 0.9.1
 Text Domain: events-calendar-user-css
 Author: Andy Fragen
 Author URI: http://thefragens.com/blog/
@@ -11,7 +11,7 @@ License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
-define( 'TECUC_VERSION', '0.9' );
+define( 'TECUC_VERSION', '0.9.1' );
 
 add_action( 'admin_notices', 'tecuc_fail_msg' );
 function tecuc_fail_msg() {
@@ -39,6 +39,7 @@ function tribe_user_css_overrides () {
 			if( version_compare( TribeEvents::VERSION, '3.0', 'ge') )
 				wp_dequeue_style( 'tribe_events-calendar-style' );
 		}
+		if( !isset( $tec_user_css ) ) return;
 		wp_enqueue_style( 'tribe-events-user-override', get_stylesheet_directory_uri() . $tec_user_css, false, TECUC_VERSION ) ;
 
 	}

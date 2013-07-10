@@ -3,7 +3,7 @@ Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.1
 Tested up to: 3.6
-Stable tag: 0.9
+Stable tag: 0.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,6 +18,8 @@ Automatically load /my-theme/events/events.css if it exists using wp_enqueue_sty
 User Added CSS lives in /wp-content/themes/my-theme/events/events.css for TEC 2.x.
 
 The default TEC events.css will be loaded for you.
+
+Correctly load tribe-events.css in proper order.
 
 == Installation ==
 
@@ -45,6 +47,9 @@ No, if you're using The Events Calendar 3.x all you need to do is create the fol
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 0.9.1 =
+* Added sanity check to ensure isset( $tec_user_css )
 
 = 0.9 =
 * TEC 3.0 doesn't quite do it correctly. They automatically load User CSS before their CSS not after. Now works with either folder/file notation.
