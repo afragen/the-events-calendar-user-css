@@ -2,8 +2,8 @@
 Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.1
-Tested up to: 3.6
-Stable tag: 0.9.1
+Tested up to: 3.8
+Stable tag: 0.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ No, if you're using The Events Calendar 3.x all you need to do is create the fol
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 0.9.2 =
+* Tested with WP 3.8, it works!
 
 = 0.9.1 =
 * Added sanity check to ensure isset( $tec_user_css )
