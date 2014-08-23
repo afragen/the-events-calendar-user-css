@@ -13,14 +13,12 @@ A plugin to correctly load users custom CSS overrides for The Events Calendar PR
 == Description ==
 A plugin to allow users to add custom CSS without having to either copy all existing code from TEC/ECP core CSS files or add the correct @import to their custom CSS.
 
-Automatically load /my-theme/tribe-events/tribe-events.css if it exists using wp_enqueue_style.
-
-Correctly load tribe-events.css in proper order when using ECP 3.x.
+Correctly load `{YOUR_THEME}/tribe-events/tribe-events.css`, if it exists, using wp_enqueue_style in proper order when using ECP 3.x.
 
 == Installation ==
 
-1. Create an `/tribe-events/tribe-events.css` file and directory inside your active theme or child theme directory.
-1. `/tribe-events/tribe-events.css` only needs to contain the override CSS. No CSS code from any core tribe-events CSS file needs to be duplicated.
+1. Create a `/tribe-events/tribe-events.css` file and directory inside your active theme or child theme directory.
+1. `/tribe-events/tribe-events.css` only needs to contain the override CSS. No CSS code from any core tribe-events CSS file(s) needs to be duplicated.
 1. Upload the entire `/the-events-calendar-user-css/` folder to the `/wp-content/plugins/` directory.
 1. Activate the plugin.
 
@@ -28,11 +26,11 @@ Correctly load tribe-events.css in proper order when using ECP 3.x.
 
 = Does the plugin require The Events Calendar plugin? =
 
-Yes. [The Events Calendar plugin](http://wordpress.org/extend/plugins/the-events-calendar/) is written by Modern Tribe, Inc. It requires at least The Events Calendar v3.x.
+Yes. [The Events Calendar plugin](http://wordpress.org/plugins/the-events-calendar/) is written by Modern Tribe, Inc. It requires at least The Events Calendar/Events Calendar PRO v3.x.
 
 = Do I really need this? =
 
-No, if you're using The Events Calendar 3.x all you need to do is create the following structure in your theme's folder. `{YOUR_THEME}/tribe-events/tribe-events.css`. This file should contain only the override CSS. It will be loaded automatically by TEC 3.0. If you're trying to override CSS in Events Calendar PRO 3.x then you will need this as the CSS for ECP is loaded after the automatic loading of tribe-events.css.
+No, if you're using The Events Calendar 3.x all you need to do is create the following structure in your theme's folder, `{YOUR_THEME}/tribe-events/tribe-events.css`. This file should contain only the override CSS. It will be loaded automatically by TEC 3.0. If you're trying to override CSS in Events Calendar PRO 3.x then you may need this plugin as the CSS for ECP is loaded after the automatic loading of tribe-events.css.
 
 = Where can I report bugs? =
 
