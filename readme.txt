@@ -3,19 +3,19 @@ Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.7
 Tested up to: 4.0
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A plugin to correctly load users custom CSS overrides for The Events Calendar.
+A plugin to correctly load users custom CSS overrides for The Events Calendar PRO.
 
 
 == Description ==
-A plugin to allow users to add custom CSS without having to either copy all existing code from the core events.css or add the correct @import to their custom CSS.
+A plugin to allow users to add custom CSS without having to either copy all existing code from TEC/ECP core CSS files or add the correct @import to their custom CSS.
 
 Automatically load /my-theme/tribe-events/tribe-events.css if it exists using wp_enqueue_style.
 
-Correctly load tribe-events.css in proper order when using both TEC 3.x and TECPro 3.x.
+Correctly load tribe-events.css in proper order when using ECP 3.x.
 
 == Installation ==
 
@@ -39,6 +39,9 @@ No, if you're using The Events Calendar 3.x all you need to do is create the fol
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 1.2.0 =
+* Now only works with ECP as there is built-in feature of TEC.
 
 = 1.1.0 =
 * Tested with WP 4.0
