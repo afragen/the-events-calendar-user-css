@@ -2,8 +2,8 @@
 Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.7
-Tested up to: 4.0
-Stable tag: 1.2.0
+Tested up to: 4.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,9 @@ No, if you're using The Events Calendar 3.x all you need to do is create the fol
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 1.3.0 =
+* Set wp_enqueue priority to `PHP_INT_MAX` to ensure loading last.
 
 = 1.2.0 =
 * Now only works with ECP as there is built-in feature of TEC.
