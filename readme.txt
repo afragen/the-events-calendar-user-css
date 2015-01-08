@@ -3,7 +3,7 @@ Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.7
 Tested up to: 4.1
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,13 +30,16 @@ Yes. [The Events Calendar plugin](http://wordpress.org/plugins/the-events-calend
 
 = Do I really need this? =
 
-No, if you're using The Events Calendar 3.x all you need to do is create the following structure in your theme's folder, `{YOUR_THEME}/tribe-events/tribe-events.css`. This file should contain only the override CSS. It will be loaded automatically by TEC 3.0. If you're trying to override CSS in Events Calendar PRO 3.x then you may need this plugin as the CSS for ECP is loaded after the automatic loading of tribe-events.css.
+No, if you're using The Events Calendar 3.x all you need to do is create the following structure in your theme's folder, `{YOUR_THEME}/tribe-events/tribe-events.css`. This file should contain only the override CSS. It will be loaded automatically by TEC 3.0. If you're trying to override CSS in Events Calendar PRO 3.x then you may need this plugin as the CSS for ECP is loaded after the automatic loading of tribe-events.css. You may also need this plugin if your theme's CSS is overriding your changes.
 
 = Where can I report bugs? =
 
 Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-user-css).
 
 == Changelog ==
+
+= 1.4.0 =
+* Removed requirement for ECP as builtin feature of TEC still doesn't load the override stylesheet after the theme's stylesheet.
 
 = 1.3.0 =
 * Set wp_enqueue priority to `PHP_INT_MAX` to ensure loading last.
