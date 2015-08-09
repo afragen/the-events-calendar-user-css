@@ -2,7 +2,7 @@
 Contributors: afragen
 Tags: events, user css, css, modern tribe, tribe
 Requires at least: 3.7
-Tested up to: 4.1.1
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -127,7 +127,7 @@ Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-e
 = 0.4 =
 * Major code cleanup, Thanks Daniel Dvorkin
 
-= 0.3 = 
+= 0.3 =
 * fixes
 
 = 0.2 =
