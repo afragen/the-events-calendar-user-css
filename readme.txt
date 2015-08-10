@@ -38,6 +38,9 @@ Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-e
 
 == Changelog ==
 
+= 1.4.1 =
+* tested to 4.3
+
 = 1.4.0 =
 * Removed requirement for ECP as builtin feature of TEC still doesn't load the override stylesheet after the theme's stylesheet.
 
