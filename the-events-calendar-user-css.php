@@ -1,15 +1,15 @@
 <?php
-/*
-Plugin Name: The Events Calendar User CSS
-Plugin URI:  https://github.com/afragen/events-calendar-user-css/
-Author:      Andy Fragen
-Author URI:  http://thefragens.com/
-Description: A plugin to work alongside The Events Calendar/Events Calendar PRO plugin(s) to allow users to add and load custom CSS from their <code>{theme}/tribe-events/tribe-events.css</code> file.
-Version:     1.4.2
-Text Domain: the-events-calendar-user-css
-License:     GNU General Public License v2
-License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-*/
+/**
+ * Plugin Name: The Events Calendar User CSS
+ * Plugin URI:  https://github.com/afragen/events-calendar-user-css/
+ * Author:      Andy Fragen
+ * Author URI:  http://thefragens.com/
+ * Description: A plugin to work alongside The Events Calendar/Events Calendar PRO plugin(s) to allow users to add and load custom CSS from their <code>{theme}/tribe-events/tribe-events.css</code> file.
+ * Version:     1.4.2
+ * Text Domain: the-events-calendar-user-css
+ * License:     GNU General Public License v2
+ * License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
 
 define( 'TECUC_VERSION', '1.4.2' );
 
