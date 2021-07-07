@@ -5,7 +5,7 @@
  * Author:            Andy Fragen
  * Author URI:        https://github.com/afragen/
  * Description:       A plugin to work alongside The Events Calendar/Events Calendar PRO plugin(s) to allow users to add and load custom CSS from their <code>{theme}/tribe-events/tribe-events.css</code> file.
- * Version:           1.4.3
+ * Version:           1.5.0
  * Text Domain:       the-events-calendar-user-css
  * License:           GNU General Public License v2
  * License URI:       https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -13,7 +13,7 @@
  * Requires PHP:      5.6
  */
 
-define( 'TECUC_VERSION', '1.4.3' );
+define( 'TECUC_VERSION', '1.5.0' );
 
 add_action( 'wp_enqueue_scripts', 'tribe_user_css_overrides', PHP_INT_MAX );
 function tribe_user_css_overrides() {
