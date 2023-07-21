@@ -5,7 +5,7 @@
  * Author:            Andy Fragen
  * Author URI:        https://github.com/afragen/
  * Description:       A plugin to work alongside The Events Calendar/Events Calendar PRO plugin(s) to allow users to add and load custom CSS from their <code>{theme}/tribe-events/tribe-events.css</code> file.
- * Version:           1.5.0
+ * Version:           1.5.1
  * Text Domain:       the-events-calendar-user-css
  * License:           GNU General Public License v2
  * License URI:       https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
